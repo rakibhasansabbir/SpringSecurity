@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layouts}">
+<head >
+    <title>Index Page</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="container">
+   <div class="jumbotron text text-center">
+       <h1>Welcome</h1>
+       <h3 th:text="${name}"></h3>
+
+   </div>
+</div>
+</body>
+</html>

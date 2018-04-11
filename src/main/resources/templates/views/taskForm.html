@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head th:replace="fragments/main_layouts::head">
+    <title>Index Page</title>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+
+<div class="container">
+    <h1>Add Task</h1>
+    <form th:action="@{/addTask}" th:object="${task}" method="post">
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date"  th:field="*{date}"/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></div>
+        </div>
+        <div class="form-group">
+            <label for="startTime">Start Time:</label>
+            <input type="time" class="form-control" id="startTime"  th:field="*{startTime}"/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></div>
+        </div>
+        <div class="form-group">
+            <label for="stopTime">Stop Time:</label>
+            <input type="time" class="form-control" id="stopTime"  th:field="*{stopTime}"/>
+            <div class="text text-danger" th:if="${#fields.hasErrors('stopTime')}" th:errors="*{stopTime}"></div>
+        </div>
+        <div class="form-group">
+            <label for="description">Stop Time:</label>
+            <textarea  class="form-control" id="description" th:field="*{description}"></textarea>
+            <div class="text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>
